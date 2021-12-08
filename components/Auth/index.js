@@ -35,7 +35,7 @@ function AuthProvider ({ children }) {
   }
 
   const saveSession = (data) => {
-    const { user, jwt: token } = data
+    const { user, token } = data
     localStorage.setItem('_session', JSON.stringify({ user, token }));
     fetchSession()
   }
