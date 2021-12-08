@@ -1,0 +1,2 @@
+ipfsDocsAppFront:
+  component: "@sls-next/serverless-component"
