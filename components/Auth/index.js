@@ -18,7 +18,7 @@ function AuthProvider ({ children }) {
 
   const listErrors = (messages) => {
     return (messages || errors).map(message => (
-      <div className='flex w-full py-4 px-4 rounded border-red-400 border bg-red-200 mb-5'>{message.message}</div>
+      <div className='flex w-full py-4 px-4 rounded border-red-400 border bg-red-200 mb-5'>{message.errorMessage}</div>
     ))
   }
 
@@ -40,19 +40,20 @@ function AuthProvider ({ children }) {
     fetchSession()
   }
 
-  const signIn = async (email, password) => {
+  const signIn = async (email, password, onSuccess) => {
     setLoading(true)
     try {
       const { data } = await axios.post('https://z7b9gr1x12.execute-api.us-east-1.amazonaws.com/dev/auth/login', {
         email: email,
         password
       });
+      onSuccess('/dashboard')
       saveSession(data)
       setLoading(false)
     } catch (error) {
       console.log('auth error', error);
       console.log(error.response.data.data[0])
-      setErrors(error.response.data.data[0].messages)
+      setErrors([error.response.data])
       setLoading(false)
     }
   }

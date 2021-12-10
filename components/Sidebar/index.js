@@ -1,7 +1,17 @@
+import { useRouter } from 'next/router'
+
 export default function Sidebar() {
+  const router = useRouter()
+
+  const redirect = (e, url) => {
+    e.preventDefault()
+    e.stopPropagation();
+    router.push(url);
+  }
+
   return (
     <div className='flex flex-col items-center w-40 h-full overflow-hidden text-gray-300 bg-indigo-900'>
-      <a className='flex items-center w-full px-3 mt-3' href='#'>
+      <a className='flex items-center w-full px-3 mt-3' onClick={e => redirect(e, '/dashboard')}>
         <svg
           className='w-8 h-8 fill-current'
           xmlns='http://www.w3.org/2000/svg'
@@ -17,6 +27,7 @@ export default function Sidebar() {
           <a
             className='flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-800 hover:text-gray-300'
             href='#'
+            onClick={e => redirect(e, '/dashboard')}
           >
             <svg
               className='w-6 h-6 stroke-current'
@@ -37,6 +48,7 @@ export default function Sidebar() {
           <a
             className='flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-800 hover:text-gray-300'
             href='#'
+            onClick={e => redirect(e, '/dashboard/files')}
           >
             <svg
               className='w-6 h-6 stroke-current'

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {useAuth} from '../Auth'
+import { useRouter } from "next/router";
 
 export default function Login() {
 
@@ -9,6 +10,7 @@ export default function Login() {
   });
   const { signIn, isAuthenticated, errors, listErrors } = useAuth()
   const [loading, setLoading] = useState(false);
+  const router = useRouter()
 
   if (isAuthenticated) {
     return <h1>You're already in!</h1>
@@ -18,7 +20,11 @@ export default function Login() {
     e.preventDefault()
     e.stopPropagation()
     console.log('signin', user)
-    await signIn(user.email, user.password);
+    await signIn(user.email, user.password, onSuccess);
+  }
+
+  const onSuccess = (url) => {
+    router.push(url)
   }
 
   return (
