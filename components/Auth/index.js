@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from 'axios'
 
@@ -15,6 +16,7 @@ function AuthProvider ({ children }) {
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState([])
   const authenticated = user.id && token;
+  const router = useRouter()
 
   const listErrors = (messages) => {
     return (messages || errors).map(message => (
@@ -58,6 +60,11 @@ function AuthProvider ({ children }) {
     }
   }
 
+  const logout = () => {
+    localStorage.removeItem('_session');
+    window.location.href = '/'
+  }
+
   useEffect(() => {
     fetchSession()
   }, [])
@@ -68,6 +75,7 @@ function AuthProvider ({ children }) {
         saveSession,
         signIn,
         listErrors,
+        logout,
         user,
         token,
         isAuthenticated: authenticated,

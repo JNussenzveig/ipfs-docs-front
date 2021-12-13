@@ -2,6 +2,7 @@ import axios from 'axios'
 import { DocumentAddIcon, DocumentIcon, PhotographIcon } from '@heroicons/react/solid'
 import { useState, useEffect } from 'react'
 import DashboardPage from '../../components/DashboardPage'
+import FileDropzone from '../../components/FileDropzone'
 import { useAuth } from '../../components/Auth'
 import PropagateLoader from "react-spinners/PropagateLoader";
 import FileLightbox from '../../components/ViewFile/components/FileLightbox'
@@ -35,6 +36,7 @@ export default function DashboardIndex() {
 
     return (
        <DashboardPage pageTitle='Seus Arquivos'>
+           <FileDropzone />
             {!loading && items.length > 0 && <div className='grid grid-cols-3 auto-rows-max gap-5 w-full'>
                 {items.map(item => (
                     <>

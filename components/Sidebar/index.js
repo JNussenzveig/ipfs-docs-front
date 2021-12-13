@@ -1,7 +1,11 @@
 import { useRouter } from 'next/router'
+import { useState } from 'react'
+import { useAuth } from '../Auth'
 
 export default function Sidebar() {
   const router = useRouter()
+  const { token, logout } = useAuth()
+  const [dropdown, setShowDropdown] = useState(false);
 
   const redirect = (e, url) => {
     e.preventDefault()
@@ -23,7 +27,7 @@ export default function Sidebar() {
         <span className='ml-2 text-sm font-bold'>CloudX</span>
       </a>
       <div className='w-full px-2'>
-        <div className='flex flex-col items-center w-full mt-3 border-t border-gray-700'>
+        <div className='flex flex-col items-center w-full mt-3 border-t border-indigo-700'>
           <a
             className='flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-800 hover:text-gray-300'
             href='#'
@@ -67,7 +71,7 @@ export default function Sidebar() {
             <span className='ml-2 text-sm font-medium'>Arquivos</span>
           </a>
         </div>
-        <div className='flex flex-col items-center w-full mt-2 border-t border-gray-700'>
+        <div className='flex flex-col items-center w-full mt-2 border-t border-indigo-700'>
           <a
             className='flex items-center w-full h-12 px-3 mt-2 rounded hover:bg-indigo-800 hover:text-gray-300'
             href='#'
@@ -132,8 +136,9 @@ export default function Sidebar() {
         </div>
       </div>
       <a
-        className='flex items-center justify-center w-full h-16 mt-auto bg-gray-800 hover:bg-indigo-800 hover:text-gray-300'
+        className='flex items-center justify-center w-full h-16 mt-auto bg-gray-800 hover:bg-indigo-800 hover:text-gray-300 block db relative'
         href='#'
+        onClick={e => setShowDropdown(!dropdown)}
       >
         <svg
           className='w-6 h-6 stroke-current'
@@ -150,6 +155,9 @@ export default function Sidebar() {
           />
         </svg>
         <span className='ml-2 text-sm font-medium'>Account</span>
+        {dropdown && <div className='absolute left-0 w-full' style={{ top: '-64px' }}>
+          <span className='p-4 flex' onClick={e => logout()}>Item 1</span>
+        </div>}
       </a>
     </div>
   );
