@@ -28,8 +28,8 @@ export default function Login() {
   }
 
   return (
-    <div className='flex w-full items-center justify-center h-screen flex-col'>
-      <h1 className='font-bold text-2xl'>Welcome Back :)</h1>
+    <div className='flex w-full items-center justify-center h-screen flex-col bg-indigo-600'>
+      <h1 className='font-bold text-2xl text-white'>Welcome Back :)</h1>
       <div
         className='flex flex-col bg-white rounded shadow-lg p-12 mt-12'
         action=''
@@ -39,7 +39,7 @@ export default function Login() {
           Email
         </label>
         <input
-          className='flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2'
+          className='flex items-center h-12 px-4 w-64 bg-gray-100 mt-2 rounded focus:outline-none focus:ring-2 border border-gray-300'
           type='text'
           onChange={e => setUser(u => ({...u, email: e.target.value}))}
         />
@@ -47,7 +47,7 @@ export default function Login() {
           Password
         </label>
         <input
-          className='flex items-center h-12 px-4 w-64 bg-gray-200 mt-2 rounded focus:outline-none focus:ring-2'
+          className='flex items-center h-12 px-4 w-64 bg-gray-100 mt-2 rounded focus:outline-none focus:ring-2 border border-gray-300'
           type='password'
           onChange={e => setUser(u => ({...u, password: e.target.value}))}
         />
