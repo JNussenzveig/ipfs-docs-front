@@ -18,7 +18,8 @@ export default function DashboardIndex() {
         try {
             const { data } = await axios.get('https://z7b9gr1x12.execute-api.us-east-1.amazonaws.com/dev/files', {
                 headers: {
-                    Authorization: `Bearer ${token}`
+                    Authorization: `Bearer ${token}`,
+                    'Accept': 'application/json'
                 }
             })
             setItems(data.items);

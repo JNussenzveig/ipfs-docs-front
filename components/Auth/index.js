@@ -48,13 +48,18 @@ function AuthProvider ({ children }) {
       const { data } = await axios.post('https://z7b9gr1x12.execute-api.us-east-1.amazonaws.com/dev/auth/login', {
         email: email,
         password
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
       });
       onSuccess('/dashboard')
       saveSession(data)
       setLoading(false)
     } catch (error) {
-      console.log('auth error', error);
-      console.log(error.response.data.data[0])
+      console.log('auth error', error.response);
+      console.log(error.response.data)
       setErrors([error.response.data])
       setLoading(false)
     }

@@ -17,7 +17,8 @@ export default function Dropzone(props) {
 
         const { data } = await axios.post('https://z7b9gr1x12.execute-api.us-east-1.amazonaws.com/dev/files/upload', formData, {
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${token}`,
+                'Accept': 'application/json'
             },
             onUploadProgress: (event) => {
                 const progress = Math.round(
