@@ -2,14 +2,17 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useAuth } from '../Auth'
 import { DocumentIcon } from "@heroicons/react/solid"
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 export default function ViewFile ({ file }) {
     const [decrypted, setDecrypted] = useState(null)
+    const [loading, setLoading] = useState(false)
     const { token } = useAuth()
 
     const downloadFile = async () => {
+        setLoading(true)
         try {
-            const { data } = await axios.get(`https://z7b9gr1x12.execute-api.us-east-1.amazonaws.com/dev/files/${file.fileId}/get`, {
+            const { data } = await axios.post(`https://z7b9gr1x12.execute-api.us-east-1.amazonaws.com/dev/files/${file.fileId}/get`, {}, {
                 responseType: 'arraybuffer',
                 headers: {
                     Authorization: `Bearer ${token}`
@@ -17,8 +20,12 @@ export default function ViewFile ({ file }) {
             });
             console.log('data', data)
             setDecrypted(data);
+            setLoading(false)
         } catch (error) {
-            
+            console.log(JSON.stringify(error))
+            console.log(JSON.stringify(error.response))
+            console.log(JSON.stringify(error.response && error.response.data))
+            setLoading(false)
         }
     }
 
@@ -26,6 +33,12 @@ export default function ViewFile ({ file }) {
         if (token && !decrypted)
             downloadFile()
     }, [token])
+
+    if (loading) {
+        return (
+            <PropagateLoader loading={loading} color='#3730a3' />
+        )
+    }
 
     if (decrypted && file.contentType.includes('image')) {
         return (

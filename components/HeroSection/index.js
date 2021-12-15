@@ -27,7 +27,7 @@ export default function HeroSection({ navigation }) {
                 <span className="block text-indigo-600 xl:inline">rápido, fácil e seguro!</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                A <b>Cloudocs</b> trabalha apenas com tecnologia de ponta, trazendo para você praticidade, performance, segurança e evolução. Agende uma call para nos contar suas idéias!
+                A <b>CloudX</b> trabalha apenas com tecnologia de ponta, trazendo para você praticidade, performance, segurança e evolução. Aproveite nosso teste grátis de 20 dias!
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
@@ -35,7 +35,7 @@ export default function HeroSection({ navigation }) {
                     href="#"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
                   >
-                    Saiba mais
+                    Quero testar!
                   </a>
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
@@ -43,7 +43,7 @@ export default function HeroSection({ navigation }) {
                     href="#"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 md:py-4 md:text-lg md:px-10"
                   >
-                    Contate-nos
+                    Saiba mais
                   </a>
                 </div>
               </div>
@@ -54,7 +54,7 @@ export default function HeroSection({ navigation }) {
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 sm:w-full xs:order-1 sm:order-1 md:order-2 lg:order-2">
         <img
           className="w-full object-cover sm:w-full md:h-96 lg:w-full lg:h-full"
-          src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
+          src="https://www.jotform.com/blog/wp-content/uploads/2019/09/what-is-cloud-storage.png"
           alt=""
         />
       </div>

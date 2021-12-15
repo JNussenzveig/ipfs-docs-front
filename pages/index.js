@@ -3,9 +3,6 @@ import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
 import FeatureSection from '../components/FeatureSection';
 import PricingSection from '../components/PricingSection';
-import QuoteCard from '../components/QuoteCard';
-import SimpleCard from '../components/SimpleCard';
-import Sidebar from '../components/Sidebar';
 
 export default function Home() {
   return (
@@ -13,22 +10,22 @@ export default function Home() {
       <Header />
       <div className='flex flex-col items-center justify-center min-h-screen'>
         <Head>
-          <title>Create Next App</title>
+          <title>CloudX</title>
           <link rel='icon' href='/favicon.ico' />
         </Head>
 
         <HeroSection />
         <FeatureSection 
-          callout='our services' 
-          title='Get to know us' 
-          description='Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor' 
+          callout='Serviços' 
+          title='Armazenamento seguro, rápido e barato!' 
+          description='Seus arquivos pessoais serão criptografados e armazenados e só você controla quem pode acessar.' 
           items={[
-            { title: 'Integrações', text: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor' },
-            { title: 'Consultoria', text: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor' },
-            { title: 'E-Commerce', text: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor' },
-            { title: 'VTEX IO', text: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor' },
-            { title: 'Mobile', text: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor' },
-            { title: 'Websites', text: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor' },
+            { title: 'Velocidade da Luz', text: 'Todos os seus arquivos ficam disponíveis 100% do tempo e são servidos pra você com a velocidade da luz!' },
+            { title: 'Criptografia de Ponta', text: 'Seus arquivos completamente seguros com uma criptografia de ponta para total segurança.' },
+            { title: 'Preços Acessíveis', text: 'À partir de R$30/mês você pode desfrutar de toda nossa estrutura. Barato, né?!' },
+            { title: 'Você no controle', text: 'Controle quem pode acessar e editar seus arquivos com a maior facilidade!' },
+            { title: 'Preserve o que importa', text: 'Oferecemos um serviço de backup automático de arquivos para dispositivos móveis e desktop!' },
+            { title: 'Primeiro mês grátis', text: 'Aproveite agora e desfrute de TUDO isso por 30 dias grátis!' },
           ]} 
         />
         <PricingSection />
