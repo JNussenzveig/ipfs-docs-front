@@ -42,7 +42,12 @@ export default function ViewFile ({ file }) {
 
     if (decrypted && file.contentType.includes('image')) {
         return (
-            <img className='z-10' src={`data:${file.contentType};base64,${Buffer.from(decrypted).toString('utf8')}`} alt={file.originalName || file.title} />
+            <div className='flex flex-col justify-center items-center h-4/5 w-4/5 relative'>
+                <div className='absolute right-0' style={{ top: '-30px' }}>
+                    <button className='border border-indigo-900 bg-indigo-900 text-white text-md font-medium rounded shadow-md py-2 px-8'>Share</button>
+                </div>
+                <img className='z-10' src={`data:${file.contentType};base64,${Buffer.from(decrypted).toString('utf8')}`} alt={file.originalName || file.title} />
+            </div>
         )
     }
 
