@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react'
 import { useAuth } from '../Auth'
 import { DocumentIcon } from "@heroicons/react/solid"
 import PropagateLoader from "react-spinners/PropagateLoader";
+import InviteModal from '../InviteModal';
 
 export default function ViewFile ({ file }) {
     const [decrypted, setDecrypted] = useState(null)
     const [loading, setLoading] = useState(false)
+    const [showInvite, setShowInvite] = useState(false)
     const { token } = useAuth()
 
     const downloadFile = async () => {
@@ -42,12 +44,15 @@ export default function ViewFile ({ file }) {
 
     if (decrypted && file.contentType.includes('image')) {
         return (
-            <div className='flex flex-col justify-center items-center h-4/5 w-4/5 relative'>
-                <div className='absolute right-0' style={{ top: '-30px' }}>
-                    <button className='border border-indigo-900 bg-indigo-900 text-white text-md font-medium rounded shadow-md py-2 px-8'>Share</button>
+            <>
+                {showInvite && <InviteModal onClose={e => setShowInvite(false)} fileId={file.fileId} />}
+                <div className='flex flex-col justify-center items-center h-4/5 w-4/5 relative'>
+                    <div className='absolute right-0' style={{ top: '-30px' }}>
+                        <button className='border border-indigo-900 bg-indigo-900 text-white text-md font-medium rounded shadow-md py-2 px-8' onClick={e => setShowInvite(true)}>Share</button>
+                    </div>
+                    <img className='z-10' src={`data:${file.contentType};base64,${Buffer.from(decrypted).toString('utf8')}`} alt={file.originalName || file.title} />
                 </div>
-                <img className='z-10' src={`data:${file.contentType};base64,${Buffer.from(decrypted).toString('utf8')}`} alt={file.originalName || file.title} />
-            </div>
+            </>
         )
     }
 
