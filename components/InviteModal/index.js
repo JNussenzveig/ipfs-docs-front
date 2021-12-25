@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { useAuth } from '../Auth'
-import { UserGroup } from '@heroicons/react/solid'
+import PropagateLoader from "react-spinners/PropagateLoader";
 
 // Dependencies
 const InviteModal = ({ fileId, onClose }) => {
@@ -38,8 +38,8 @@ const InviteModal = ({ fileId, onClose }) => {
                     Authorization: `Bearer ${token}`
                 }
             })
-            console.log('invited', invite)
-            setInvites(invs => [...invs, newInvite]);
+            console.log('invited', newInvite)
+            setInvites(invs => [...invs, newInvite.permission]);
             setLoading(false)
         } catch (error) {
             setLoading(false)
@@ -69,14 +69,17 @@ const InviteModal = ({ fileId, onClose }) => {
                         Convidar
                     </button>
                 </div>
-                <div className="border-t border-gray-400 mt-5 overflow-y-auto">
-                   {invites.map(invite => (<div className="w-full border-b border-gray-400 p-2 flex items-center justify-between">
+                {loading && <div className='flex justify-center items-center w-full my-5'>
+                    <PropagateLoader className='bg-indigo-800 text-indigo-800' />
+                </div>}
+                {!loading && <div className="border-t border-gray-300 mt-5 overflow-y-auto">
+                   {invites.map(invite => (<div className="w-full border-b border-gray-300 p-2 flex items-center justify-between">
                         <div className="font-medium">{invite.guestId}</div>
-                        <div className={`font-medium flex flex-col relative ${invite.active ? 'bg-green-500' : 'bg-indigo-500'} text-white shadow-md py-2 px-4 rounded`}>
+                        <div className={`font-medium text-sm flex flex-col relative ${invite.active ? 'bg-green-500' : 'bg-indigo-500'} text-white shadow-md p-2 rounded`}>
                             {invite.active ? 'ALLOWED' : 'INVITED'}
                         </div>
                     </div>))}
-                </div>
+                </div>}
             </div>
         </div>
     );
