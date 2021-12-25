@@ -67,7 +67,7 @@ export default function DashboardIndex() {
                                     {['image/png', 'image/jpg', 'image/jpeg', 'image/gif'].includes(item.contentType) ? <PhotographIcon /> : <DocumentIcon />}
                                 </div>
                                 <div class="flex-grow flex flex-col ml-4">
-                                    <span class="text-xl font-bold">{item.title}</span>
+                                    <span class="text-xl font-bold">{item.title.length >= 21 ? `${item.title.substring(0, 21)}...` : item.title}</span>
                                     <div class="flex items-center justify-between">
                                         <span class="text-gray-500">{item.description}</span>
                                         <span class="text-gray-400 text-sm font-semibold ml-2">{item.contentType.split("/")[1].toUpperCase()}</span>
@@ -91,7 +91,7 @@ export default function DashboardIndex() {
                                     {['image/png', 'image/jpg', 'image/jpeg', 'image/gif'].includes(item.contentType) ? <PhotographIcon /> : <DocumentIcon />}
                                 </div>
                                 <div class="flex-grow flex flex-col ml-4">
-                                    <span class="text-xl font-bold">{item.title}</span>
+                                    <span class="text-xl font-bold">{item.title.length >= 21 ? `${item.title.substring(0, 21)}...` : item.title}</span>
                                     <div class="flex items-center justify-between">
                                         <span class="text-gray-500">{item.description}</span>
                                         <span class="text-gray-400 text-sm font-semibold ml-2">{item.contentType.split("/")[1].toUpperCase()}</span>

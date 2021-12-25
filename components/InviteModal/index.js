@@ -70,7 +70,7 @@ const InviteModal = ({ fileId, onClose }) => {
                     </button>
                 </div>
                 {loading && <div className='flex justify-center items-center w-full my-5'>
-                    <PropagateLoader className='bg-indigo-800 text-indigo-800' />
+                    <PropagateLoader loading={loading} color='#3730a3' />
                 </div>}
                 {!loading && <div className="border-t border-gray-300 mt-5 overflow-y-auto">
                    {invites.map(invite => (<div className="w-full border-b border-gray-300 p-2 flex items-center justify-between">

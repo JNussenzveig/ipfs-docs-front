@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {useAuth} from '../Auth'
 import { useRouter } from "next/router";
+import PulseLoader from "react-spinners/PulseLoader";
 
 export default function Login() {
 
@@ -20,7 +21,9 @@ export default function Login() {
     e.preventDefault()
     e.stopPropagation()
     console.log('signin', user)
+    setLoading(true)
     await signIn(user.email, user.password, onSuccess);
+    setLoading(false)
   }
 
   const onSuccess = (url) => {
@@ -51,9 +54,12 @@ export default function Login() {
           type='password'
           onChange={e => setUser(u => ({...u, password: e.target.value}))}
         />
-        <button onClick={onSubmit} className='flex items-center justify-center h-12 px-6 w-64 bg-indigo-600 mt-8 rounded font-semibold text-sm text-indigo-100 hover:bg-indigo-700'>
+        {!loading && <button disabled={loading} onClick={onSubmit} className='flex items-center justify-center h-12 px-6 w-64 bg-indigo-600 mt-8 rounded font-semibold text-sm text-indigo-100 hover:bg-indigo-700'>
           Login
-        </button>
+        </button>}
+        {loading && <div className='flex justify-center items-center h-12 mt-8'>
+          <PulseLoader loading={loading} color='#3730a3' style={{ width: 10, height: 10 }} />  
+        </div>}
         <div className='flex mt-6 justify-center text-xs'>
           <a className='text-indigo-400 hover:text-indigo-500' href='#'>
             Forgot Password
