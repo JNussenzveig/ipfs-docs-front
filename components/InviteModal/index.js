@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 import { useAuth } from '../Auth'
-import PropagateLoader from "react-spinners/PropagateLoader";
+import PropagateLoader from "react-spinners/PropagateLoader"
+import { UserGroupIcon } from '@heroicons/react/solid';
 
 // Dependencies
 const InviteModal = ({ fileId, onClose }) => {
@@ -55,7 +56,7 @@ const InviteModal = ({ fileId, onClose }) => {
         <div className="min-h-screen flex justify-center items-center flex-col fixed z-20 w-full">
             <div className='w-full h-full bg-black bg-opacity-50 fixed' onClick={e => onClose()}></div>
             <div className="bg-white p-6 w-2/4 rounded shadow-lg z-10">
-                {/* <UserGroup className='w-8 h-8' /> */}
+                <UserGroupIcon className='w-8 h-8' color='#3730a3' />
                 <h1 className="font-bold text-2xl">Convidar pessoas</h1>
                 <div className="border-t border-gray-300 w-full mt-5 relative">
                     <input

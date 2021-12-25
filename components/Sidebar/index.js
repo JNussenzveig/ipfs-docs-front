@@ -154,9 +154,9 @@ export default function Sidebar() {
             d='M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z'
           />
         </svg>
-        <span className='ml-2 text-sm font-medium'>Account</span>
-        {dropdown && <div className='absolute left-0 w-full' style={{ top: '-64px' }}>
-          <span className='p-4 flex' onClick={e => logout()}>Item 1</span>
+        <span className='ml-2 text-sm font-medium'>Minha Conta</span>
+        {dropdown && <div className='absolute left-0 w-full bg-indigo-800' style={{ top: '-64px' }}>
+          <span className='p-4 flex' onClick={e => logout()}>Sair</span>
         </div>}
       </a>
     </div>
