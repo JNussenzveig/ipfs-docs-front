@@ -4,8 +4,8 @@ export default function PricingSection() {
       <h2 className='text-2xl font-medium'>Conheça nossos planos!</h2>
 
       <div className='flex flex-wrap items-center justify-center w-full max-w-4xl mt-8'>
-        <div className='flex flex-col flex-grow mt-8 overflow-hidden bg-white rounded-lg shadow-lg'>
-          <div className='flex flex-col items-center p-10 bg-gray-200'>
+        <div className='flex flex-col flex-grow mt-8 overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-xl transition cubic transition-delay-200 border border-gray-200'>
+          <div className='flex flex-col items-center p-10 bg-indigo-200'>
             <span className='font-semibold'>Light</span>
             <div className='flex items-center'>
               <span className='text-3xl'>R$</span>
@@ -63,19 +63,19 @@ export default function PricingSection() {
             </ul>
           </div>
           <div className='flex px-10 pb-10 justfy-center'>
-            <button className='flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-gray-200 rounded-lg'>
-              Join now
+            <button className='flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-green-400 rounded-lg text-white font-medium cursor-pointer shadow-md hover:shadow-lg'>
+              Assine Já!
             </button>
           </div>
         </div>
 
-        <div className='z-10 flex flex-col flex-grow mt-8 overflow-hidden transform bg-white rounded-lg shadow-lg md:scale-110'>
-          <div className='flex flex-col items-center p-10 bg-gray-200'>
+        <div className='z-10 flex flex-col flex-grow mt-8 overflow-hidden transform bg-white rounded-lg shadow-lg md:scale-110 hover:shadow-xl transition cubic transition-delay-200 border border-gray-200'>
+          <div className='flex flex-col items-center p-10 bg-indigo-700 text-white'>
             <span className='font-semibold'>Blaze</span>
             <div className='flex items-center'>
               <span className='text-3xl'>R$</span>
               <span className='text-6xl font-bold'>50</span>
-              <span className='text-2xl text-gray-500'>/mês</span>
+              <span className='text-2xl text-gray-300'>/mês</span>
             </div>
           </div>
           <div className='p-10'>
@@ -143,14 +143,14 @@ export default function PricingSection() {
             </ul>
           </div>
           <div className='flex px-10 pb-10 justfy-center'>
-            <button className='flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-gray-200 rounded-lg'>
-              Join now
+            <button className='flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-indigo-700 border border-indigo-700 rounded-lg text-white font-medium cursor-pointer shadow-md hover:shadow-lg'>
+              Assine Já!
             </button>
           </div>
         </div>
 
-        <div className='flex flex-col flex-grow overflow-hidden bg-white rounded-lg shadow-lg mt-19'>
-          <div className='flex flex-col items-center p-10 bg-gray-200'>
+        <div className='flex flex-col flex-grow overflow-hidden bg-white rounded-lg shadow-lg mt-19 hover:shadow-xl transition ease-in transition-delay-200'>
+          <div className='flex flex-col items-center p-10 bg-indigo-300'>
             <span className='font-semibold'>Rocket</span>
             <div className='flex items-center'>
               <span className='text-3xl'>R$</span>
@@ -238,8 +238,8 @@ export default function PricingSection() {
             </ul>
           </div>
           <div className='flex px-10 pb-10 justfy-center'>
-            <button className='flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-gray-200 rounded-lg'>
-              Join now
+            <button className='flex items-center justify-center w-full h-12 px-6 text-sm uppercase bg-green-500 rounded-lg text-white font-medium cursor-pointer shadow-md hover:shadow-lg'>
+              Assine Já!
             </button>
           </div>
         </div>
